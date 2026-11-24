@@ -8,9 +8,18 @@
   html, body { margin: 0; height: 100%; background: #fdf6b8; }
   body { display: flex; align-items: center; justify-content: center; }
   video { max-width: 100%; max-height: 100vh; height: auto; display: block; }
+  #sound { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+           background: rgba(0,0,0,.6); color: #fff; font: 15px -apple-system, sans-serif;
+           padding: 10px 18px; border-radius: 999px; border: 0; cursor: pointer; }
 </style>
 </head>
 <body>
-  <video src="leaf_dec3%20artists%20talks.mp4" autoplay muted loop playsinline controls></video>
+  <video id="v" src="leaf.mp4" autoplay muted loop playsinline></video>
+  <button id="sound">🔊 点一下开声音 Tap for sound</button>
+<script>
+  var v = document.getElementById('v'), b = document.getElementById('sound');
+  function on() { v.muted = false; v.play(); b.style.display = 'none'; }
+  b.addEventListener('click', on); v.addEventListener('click', on);
+</script>
 </body>
 </html>
